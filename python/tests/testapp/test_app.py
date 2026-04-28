@@ -5,4 +5,4 @@ def test_pagina_inicial(cliente):
 	contenido=respuesta.data.decode()
 
 	respuesta.status_code==200
-	assert "Hola GitHub!!!! Como molasss!!" in contenido
+	assert "Holaaa!! Vamos a probar pytest!!" in contenido
