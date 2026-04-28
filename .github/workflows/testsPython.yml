@@ -1,12 +1,15 @@
-name: Prueba de Workflow con PR
+name: Tests de la App de Python
 
 on:
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'python/**'
+  workflow_dispatch:
 
 jobs:
   test:
-    name: Run Workflow Test
+    name: Run Pytest
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +26,7 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
       working-directory: ./python
+
+    - name: Run Pytest
+      run: pytest --maxfail=1 --disable-warnings --tb=short
+      working-directory: ./python/tests
